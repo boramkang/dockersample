@@ -1,0 +1,14 @@
+# FROM : 베이스 패키지로 ubuntu지정 
+FROM ubuntu:latest 
+# ARG : 해당 파일을 이미지로 빌드시 전달되는 값을 받기 위한 변수 
+# 빌드시 BUILD_MSG, CONATINER_MSG로 전달값 받을 예정
+ARG BUILD_MSG
+ARG CONTAINER_MSG
+# ENV : 환경변수로 설정하고자 하는 변수 설정
+ENV CONTAINER_MSG_ENV=${CONTAINER_MSG}
+# RUN : 해당 파일을 통해 이미지로 빌드시 수행할 명령어 (빌드시 전달받은값 출력해보기)
+RUN echo image building content $BUILD_MSG 
+# ENTRYPOINT : CMD와 동일하나 보통 컨테이너 실행시 반드시 수행시킬 기본명령어를 작성
+# 수행 내용 : ubuntu의 echo 명령어로 특정 구문 출력   (빌드시 전달받은값 출력해보기)
+ENTRYPOINT echo container running content $BUILD_MSG $CONTAINER_MSG_ENV
+

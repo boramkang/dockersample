@@ -1,0 +1,6 @@
+# FROM : 베이스 패키지로 ubuntu지정 
+FROM ubuntu:latest 
+# CMD : 해당 파일로 빌드된 이미지로 컨테이너 실행시 수행할 명령어 
+# 수행 내용 : ubuntu의 echo 명령어로 특정 구문 출력   
+CMD ["echo", "hello dockerfile"] 
+
