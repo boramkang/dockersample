@@ -1,4 +1,4 @@
-# FROM : 베이스 패키지로 ubuntu지정 
+# FROM : 베이스 이미지로 ubuntu지정 
 FROM ubuntu:latest 
 # RUN : 해당 파일을 통해 이미지로 빌드시 수행할 명령어
 # 수행 내용 : 패키지 관리자를 이용하여 자바 설치
