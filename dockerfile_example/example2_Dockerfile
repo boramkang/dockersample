@@ -1,4 +1,4 @@
-# FROM : 베이스 패키지로 ubuntu지정 
+# FROM : 베이스 이미지로 ubuntu지정 
 FROM ubuntu:latest 
 # ARG : 해당 파일을 이미지로 빌드시 전달되는 값을 받기 위한 변수 
 # 빌드시 BUILD_MSG로 전달값 받을 예정
