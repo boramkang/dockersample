@@ -1,13 +1,13 @@
 # FROM : 베이스 이미지로 ubuntu지정 
 FROM ubuntu:latest
 # RUN : 해당 파일을 통해 이미지로 빌드시 수행할 명령어 
-# 수행 내용 : 패키지관리도구로 자바, git, maven, unzip 설치
-RUN apt-get update && apt-get install -y openjdk-17-jdk git maven unzip
+# 수행 내용 : 패키지관리도구로 자바, git, gradle, unzip 설치
+RUN apt-get update && apt-get install -y openjdk-17-jdk git gradle unzip
 
 # ADD : HOST파일을 이미지안으로 복사 (로컬파일+git외부파일도 가능, 압축해제 기본적으로 제공하나 외부파일은 안됨)
-# 수행 내용 : 아래의 URL의 dockersample.zip 파일을 복사 (압축해제 안됨)
+# 수행 내용 : 아래의 git URL의 dockersample.zip 파일을 복사 (압축해제 안됨)
 ADD https://github.com/boramkang/dockersample/blob/main/test/dockerfile_sample.zip /home/addtest/
-# 수행 내용 : 아래의 URL의 dockersample.zip 파일을 복사 (압축해제 됨)
+# 수행 내용 : HOST내의 apache-tomcat-9.0.89.tar.gz 파일을 복사 (압축해제 됨)
 ADD apache-tomcat-9.0.89.tar.gz /home/tomcat/
 
 # COPY : HOST파일을 이미지안으로 복사 (로컬파일만 가능, 압축해제안됨)
@@ -15,4 +15,3 @@ ADD apache-tomcat-9.0.89.tar.gz /home/tomcat/
 COPY index.html /home/tomcat/apache-tomcat-9.0.89/webapps/ROOT/
 # 수행 내용 : HOST내의 apache-tomcat-9.0.89.tar.gz 파일을 복사 (압축해제안됨)
 COPY apache-tomcat-9.0.89.tar.gz /home/copytest/
-
